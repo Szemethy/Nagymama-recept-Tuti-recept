@@ -1,2 +1,2 @@
 # Nagymama-recept-Tuti-recept
-Recept platform
+![Logo](images/https://nagyititka.hu/assets/images/nagyi-standalone.png)
