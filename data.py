@@ -26,6 +26,6 @@ feljel = [
     "Arany;fawe334 "
 ]
 
-def check(bekertAdat: str, hely: int):
-    splitted = bekertAdat.split(";")
+def check(inputData: str, hely: int):
+    splitted = inputData.split(";")
     return splitted[hely]
