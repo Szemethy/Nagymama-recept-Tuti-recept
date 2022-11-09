@@ -9,9 +9,9 @@ def register():
     nevek.append(input("Név: "))
     felhasznalonev.append(input("Felhasználónév: "))
     jelszo.append(input("Jelszó: "))
-    f = open('feljel.csv', 'a', encoding="UTF-8")
-    f = write(f'{nevek}\n')
-    f.close()
+    # f = open('feljel.csv', 'a', encoding="UTF-8")
+    # f = write(f'{nevek}\n')
+    # f.close()
 
 
 def login():
