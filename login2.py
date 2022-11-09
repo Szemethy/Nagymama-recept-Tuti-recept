@@ -21,7 +21,7 @@ def register():
 
     newPassword = input("Jelszó: ")
     while len(newPassword) < 6:
-        print("A jelszó túl rövid")
+        print("A jelszó túl rövid\n'minimun 6 karakter'")
         newPassword = input("Jelszó: ")
     usernameList.append(newUsername)
     passwordList.append(newPassword)
@@ -36,16 +36,16 @@ def register():
 def login():
     readFile()
     makeLists()
-    username = input("Ajdon meg egy felhasználónevet: ")
+    username = input("Adjon meg egy felhasználónevet: ")
     while username not in usernameList:
         print("Nincs ilyen felhasználónév!")
-        username = input("Ajdon meg egy felhasználónevet: ")
+        username = input("Adjon meg egy felhasználónevet: ")
 
     for i in range(len(usernameList)):
         if usernameList[i] == username:
             break
     
-    password = input("Ajda meg jelszavát: ")
+    password = input("Adja meg jelszavát: ")
     if passwordList[i] == password:
         print("Sikeres bejelentkezés!")
         global sikeres
