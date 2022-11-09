@@ -1,4 +1,4 @@
-"""
+
 feljel = []
 
 def readFile(fileName = 'feljel.csv'):
@@ -12,20 +12,20 @@ def writeFile(fileName = 'feljel.csv'):
     for recept in feljel:
         f.write(f'{recept}\n')
     f.close()
-"""
 
 
-feljel = [
-    "Pista;fashsdf",
-    "Béla;gew3",
-    "Józsi;34wf",
-    "Ferenc;34256t4g",
-    "Vlagyi;fassdf45",
-    "János;daw3",
-    "Viktor;35wrf",
-    "Arany;fawe334 "
-]
 
-def check(inputData: str, hely: int):
-    splitted = inputData.split(";")
-    return splitted[hely]
+# feljel = [
+#     "Pista;fashsdf",
+#     "Béla;gew3",
+#     "Józsi;34wf",
+#     "Ferenc;34256t4g",
+#     "Vlagyi;fassdf45",
+#     "János;daw3",
+#     "Viktor;35wrf",
+#     "Arany;fawe334 "
+# ]
+
+# def check(inputData: str, hely: int):
+#     splitted = inputData.split(";")
+#     return splitted[hely]
