@@ -1,5 +1,5 @@
-from functions import modifyResult, readFile, newResult, searchByName
-from menu import menu
+from functions_TG import modifyResult, readFile, newResult, searchByName
+from menu_TG import menu
 
 readFile()
 choice = menu()

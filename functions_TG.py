@@ -1,4 +1,4 @@
-from result import Result
+from result_TG import Result
 
 results = []
 
@@ -8,6 +8,7 @@ def readFile():
     f.readline() 
     for row in f:
         r = Result(row.strip())
+        results.append(r)
     f.close
 
 def searchByName():
