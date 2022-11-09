@@ -1,7 +1,9 @@
 from frontend import *
 from booter import *
+import os
 
 def menu(userID=0,userName="Carlos"):
+    os.system('cls')
     text(Color.CYAN)
     slowPrint("Üdvözlünk ",0.05)
     text(Format.BOLD,Format.ITALIC,Color.BLUE)
@@ -32,7 +34,7 @@ def menu(userID=0,userName="Carlos"):
     slowPrint(f"0. kilépés\n",0.02)
 
 
-getBooterText()
-boot()
+#getBooterText()
+#boot()
 #bejelentkezés()
-menu()
+#menu()
