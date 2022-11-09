@@ -55,19 +55,26 @@ def text(*arg):
         elif x[0] == Format.BOLD[0]:
             print(x,end="")
 
-        #print(f"{ord(x[0])}")
+import time
+def slowPrint(printedText="",delay=0.1,end=""):
+    '''
+    Sima `print` függvény betűnkénti késleltetéssel.
+            
+            Argumentumok: `szöveg`, `end`, `delay`
+    
+    (Célszerű későbbi implementálása, mivel lassítja a kód lefutását)
+    '''
+    end = str(end)
+    try:
+        delay = float(delay)
+    except ValueError:
+        return
+
+    if type(printedText) is not list:
+        printedText = str(printedText)
 
 
-import random
-
-def boot():
-    wisedomList = []
-    with open("wisdom.txt","r",encoding="UTF-8") as file:
-        for row in file:
-            wisedomList.append(row)
-        randomInListIndex = random.randint(0,len(wisedomList)-1)
-
-    text("end","red",Format.UNDERLINE,"blue")
-    print(f"{wisedomList[randomInListIndex]}")
-
-boot()
+    for char in printedText: 
+        time.sleep(delay)
+        print(char,end=end)
+    time.sleep(delay)
