@@ -1,10 +1,13 @@
 
 feljel = []
 
+def splitter(string:str):
+    return string.split(";")
+
 def readFile(fileName = 'feljel.csv'):
     f = open(fileName, 'r', encoding="UTF-8")
     for row in f:
-        feljel.append(row.strip())
+        feljel.append(row)
     f.close()
 
 def writeFile(fileName = 'feljel.csv'):
@@ -12,6 +15,7 @@ def writeFile(fileName = 'feljel.csv'):
     for recept in feljel:
         f.write(f'{recept}\n')
     f.close()
+
 
 
 
