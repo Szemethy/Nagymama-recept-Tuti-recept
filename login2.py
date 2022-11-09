@@ -18,4 +18,11 @@ def login():
         print("Sikertelen bejelentkezés!\n")
 
 
-
+while True:
+    fiok = input("a)Regisztrálás\nb)Bejelentkezés\nc)Kilépés\n")
+    if fiok == "a":
+        register()
+    if fiok == "b":
+        login()
+    if fiok == "c":
+        break
