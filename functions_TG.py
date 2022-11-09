@@ -48,3 +48,11 @@ def modifyResult():
             writeFile()
             return
     input('Ilyen nevű étel nincs az adatbázisban')
+
+def foods():
+    f = open('etelek.csv', 'r', encoding='UTF-8')
+    for r in results:
+        print(f'{r.name}, {r.time} perc, {r.difficult}')
+    f.close
+    input('\n')
+    
