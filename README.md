@@ -5,6 +5,7 @@ ___________
 ### A program a következőket tartalmazza:
 - Regisztráció, bejelentkezés
 - Az összes étel mutatása
+- Étel keresése az adatbázisban
 - Új étel hozzáadása
 - Étel módosítása
 - Kedvenc ételek profilonként
