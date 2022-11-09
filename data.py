@@ -15,6 +15,7 @@ def writeFile(fileName = 'feljel.csv'):
 
 
 
+
 # feljel = [
 #     "Pista;fashsdf",
 #     "Béla;gew3",
