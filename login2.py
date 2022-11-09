@@ -11,6 +11,7 @@ def register():
     jelszo.append(input("Jelszó: "))
     f = open('feljel.csv', 'a', encoding="UTF-8")
     f.write(f'{nevek}\n')
+    f.write(f'{jelszo}\n')
     f.close()
 
 

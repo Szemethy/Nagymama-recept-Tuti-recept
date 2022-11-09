@@ -8,7 +8,7 @@ def readFile(fileName = 'feljel.csv'):
     f.close()
 
 def writeFile(fileName = 'feljel.csv'):
-    f = open('fel.jel.csv', 'w', encoding="UTF-8")
+    f = open('feljel.csv', 'w', encoding="UTF-8")
     for recept in feljel:
         f.write(f'{recept}\n')
     f.close()
