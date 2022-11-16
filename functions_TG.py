@@ -52,7 +52,7 @@ def modifyResult():
 def foods():
     f = open('etelek.csv', 'r', encoding='UTF-8')
     for r in results:
-        print(f'{r.name}, {r.time} perc, {r.difficult}')
+        print(f'{r.name}, {r.time} perc, {r.difficult}, \nElkészítése:\n{r.preparation}, \nHozzávalók:\n{r.ingredients}\n\n\n\n')
     f.close
     input('\n')
 
