@@ -16,14 +16,18 @@ def searchByName():
     for r in results:
         if name.lower() in r.name.lower():
             print(f'{r.name}, {r.time} perc, {r.difficult}')
-    input('\n')
+            input('\n')
+            return
+    input('Ilyen nevű étel nincs az adatbázisban')
 
 def newResult():
     name = input('Név: ')
     time = input('Idő (perc): ')
     difficult = input('Nehézség (könnyű, közepes, bonyolult): ')
+    prep = " "
+    ing = " " 
 
-    row = f'{name};{time};{difficult}\n'
+    row = f'{name};{time};{difficult};{prep};{ing}\n'
     f = open('etelek.csv', 'a', encoding='UTF-8')
     f.write(row)
     f.close()

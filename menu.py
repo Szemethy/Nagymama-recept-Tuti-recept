@@ -2,7 +2,7 @@ from frontend import *
 import os
 from msvcrt import getwch
 
-menuTexts = ["Összes recept","Receptek keresése","Saját publikálása","Meglévő módosítása","Recept bejelentése (törlés)"]
+menuTexts = ["Összes recept","Receptek keresése","Saját recept publikálása","Meglévő recept módosítása","Recept bejelentése (törlés)"]
 
 def menuStart(userName="Bugxd",markiplier=1):
     os.system('cls')

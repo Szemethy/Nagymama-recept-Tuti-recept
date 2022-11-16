@@ -1,5 +1,5 @@
 class Result:
-    '''név,idő,nehézség,elkészítés,hozzávalók'''
+    '''`név`, `idő`, `nehézség`, `elkészítés`, `hozzávalók`'''
     def __init__(self, row: str):
         data = row.split(';')
         self.name = data[0]

@@ -2,7 +2,7 @@ from msvcrt import getwch;import os
 from booter import getBooterText, boot
 from login import login_menu
 from menu import menuStart, menuPrint, menuTexts, getMenuInput
-from functions import foods,readFile
+from functions import foods,readFile,searchByName,newResult,modifyResult
 
 if __name__ == "__main__":
     os.system("cls")
@@ -11,7 +11,7 @@ if __name__ == "__main__":
     #getBooterText()
     #boot()
     #user = login_menu()
-
+    mistakes = 0
     choice = ''
     while choice != "0":
         menuStart(userName="xd",markiplier=.0)
@@ -22,9 +22,13 @@ if __name__ == "__main__":
             case "1":
                 foods()
             case "2":
-                pass
+                searchByName()
             case "3":
-                pass 
+                newResult()
+            case "4":
+                modifyResult()
+            case "5":
+                pass
         os.system("cls")
         
 
