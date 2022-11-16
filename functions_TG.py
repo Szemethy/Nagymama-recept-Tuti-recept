@@ -55,4 +55,31 @@ def foods():
         print(f'{r.name}, {r.time} perc, {r.difficult}')
     f.close
     input('\n')
-    
+
+def allData():
+    name = input('Név: ')
+    for r in results:
+        if name.lower() == r.name.lower():
+            print(f'{r.name}, {r.time} perc, {r.difficult}, \n{r.preparation}, \n{r.ingredients}')
+    input('\n')
+
+def nameTimeDif():
+    name = input('Név: ')
+    for r in results:
+        if name.lower() == r.name.lower():
+            print(f'{r.name}, {r.time} perc, {r.difficult}')
+    input('\n')
+
+def ingredients():
+    name = input('Név: ')
+    for r in results:
+        if name.lower() == r.name.lower():
+            print(f'{r.ingredients}')
+    input('\n')
+
+def preparation():
+    name = input('Név: ')
+    for r in results:
+        if name.lower() == r.name.lower():
+            print(f'{r.preparation}')
+    input('\n')
