@@ -1,4 +1,4 @@
-from result_TG import Result
+from result import Result
 
 results = []
 

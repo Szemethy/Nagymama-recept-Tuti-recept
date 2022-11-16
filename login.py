@@ -1,38 +1,64 @@
 from data import *
+import sys
 
-bemenet = input('Felhasználónév: ')
+usernameList = []
+passwordList = []
 
-# count = 0
+def makeLists():
+    for row in feljel:
+        splittedData = splitter(row)
+        usernameList.append(splittedData[0].strip())
+        passwordList.append(splittedData[1].strip())
 
-# while count < len(feljel) and check(feljel[count],0):
-#     count += 1
-# if len(feljel) > count:
-#     print("Sikeres név")
-# else:
-#     print('Hibás felhasználónév')
+def register():
+    readFile()
+    makeLists()
+    newUsername = input("Felhasználónév: ")
+    while newUsername in usernameList:
+        print("Olyan felhasználónevet adjon meg, ami még nem létezik!")
+        newUsername = input("Felhasználónév: ")
+
+    newPassword = input("Jelszó: ")
+    while len(newPassword) < 6:
+        print("A jelszó túl rövid (minimum 6 karakter!)")
+        newPassword = input("Jelszó: ")
+    usernameList.append(newUsername)
+    passwordList.append(newPassword)
+    f = open('feljel.csv', 'a', encoding="UTF-8")
+    f.write(f'{newUsername};{newPassword}\n')
+    f.close()
+
+    return newUsername, True
 
 
-# bemenet2 = input("Jelszó: ")
+def login():
+    readFile()
+    makeLists()
+    username = input("Adjon meg egy felhasználónevet: ")
+    while username not in usernameList:
+        print("Nincs ilyen felhasználónév!")
+        username = input("Adjon meg egy felhasználónevet: ")
 
-# count = 0
-# while count < len(feljel) and check(feljel[count],1):
-#     count += 1
-# if len (feljel) > count:
-#     print("Sikeres bejelentkezés")
-# else:
-#     print("Hibás jelszó")
+    for i in range(len(usernameList)):
+        if usernameList[i] == username:
+            break
+    
+    password = input("Adja meg jelszavát: ")
+    if passwordList[i] == password:
+        print("Sikeres bejelentkezés!")
+        return username, True
+    print("Sikertelen bejelentkezés!")
+    return username, False
 
-i = 0
-while bemenet != check(feljel[i],0):
-    print('Nincs ilyen felhasználónév')
-else:
-    print('Sikeres név')
-
-
-bemenet2 = input("Jelszó: ")
-
-i = 0
-while bemenet != check(feljel[i],1):
-    print("Hibás jelszó")
-else:
-    print("Sikeres bejelentkezés")
+def login_menu():
+    sikeres = False
+    while sikeres == False:
+        fiok = input("a)Regisztrálás\nb)Bejelentkezés\nc)Kilépés\n")
+        if fiok == "a":
+            userToLogin,sikeres = register()
+        if fiok == "b":
+            userToLogin,sikeres = login()
+        if fiok == "c":
+            sys.exit()
+    #menu(userName=userToLogin)
+    return userToLogin

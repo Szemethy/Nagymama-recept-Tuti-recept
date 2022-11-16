@@ -1,7 +1,7 @@
 from menu_TG import menu
-from functions_TG import modifyResult, readFile, newResult, searchByName, allData, ingredients, preparation, nameTimeDif
+from functions import modifyResult, readFile, newResult, searchByName, allData, ingredients, preparation, nameTimeDif
 from menu_TG import menu2
-from functions_TG import *
+from functions import *
 import os
 
 readFile()
