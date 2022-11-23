@@ -3,6 +3,7 @@ from booter import getBooterText, boot
 from login import login_menu
 from menu import menuStart, menuPrint, menuTexts, getMenuInput
 from functions import foods,readFile,searchByName,newResult,modifyResult,allDataByNameOrIndex,results
+from frontend import *
 
 if __name__ == "__main__":
     os.system("cls")
@@ -14,8 +15,8 @@ if __name__ == "__main__":
     mistakes = 0
     choice = ''
     while choice != "0":
-        menuStart(userName="xd",markiplier=.0)
-        menuPrint(markiplier=.0)
+        menuStart(userName="xd",markiplier=markiplier)
+        menuPrint(markiplier=markiplier)
         choice = getMenuInput()
         os.system("cls")
         match choice:
@@ -26,6 +27,7 @@ if __name__ == "__main__":
                     openIndex = input("Index? ")
                 openIndex = int(openIndex)-1 #gépindex-é emberindex helyett
                 allDataByNameOrIndex(nameOrIndex=openIndex,isByIndex=True)
+                getwch()
             case "2":
                 indexList = searchByName()
                 if indexList:
@@ -34,7 +36,9 @@ if __name__ == "__main__":
                         openIndex = input("Index? ")
                     openIndex = int(openIndex)-1
                     searchedIndex = indexList[openIndex]
-                    allDataByNameOrIndex(nameOrIndex=searchedIndex,isByIndex=True)     
+                    allDataByNameOrIndex(nameOrIndex=searchedIndex,isByIndex=True)
+                slowPrint("Ilyen nevű receptünk nincs! :c",0.01*markiplier)
+                getwch()
             case "3":
                 newResult()
             case "4":

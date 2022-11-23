@@ -1,4 +1,5 @@
 from result import Result
+from frontend import *
 import os
 
 results = []
@@ -11,36 +12,6 @@ def readFile():
         r = Result(row.strip())
         results.append(r)
     f.close()
-
-def searchByName():
-    name = input('Név: ')
-    count = 0
-    indexList = []
-    for i,r in enumerate(results):
-        if name.lower() in r.name.lower():
-            print(f'[{count+1}.] {r.name}, {r.time} perc, {r.difficult}')
-            count += 1
-            indexList.append(i)
-    if count == 0:
-        input('Ilyen nevű étel nincs az adatbázisban')
-        return False
-    else:
-        return indexList
-
-def newResult():
-    name = input('Név: ')
-    time = input('Idő (perc): ')
-    difficult = input('Nehézség (könnyű, közepes, bonyolult): ')
-    prep = " "
-    ing = " " 
-
-    row = f'{name};{time};{difficult};{prep};{ing}\n'
-    f = open('etelek.csv', 'a', encoding='UTF-8')
-    f.write(row)
-    f.close()
-
-    r = Result(row)
-    results.append(r)
 
 def writeFile():
     f = open('etelek.csv', 'w', encoding='UTF-8')
@@ -60,9 +31,30 @@ def modifyResult():
             return
     input('Ilyen nevű étel nincs az adatbázisban')
 
+def newResult():
+    name = input('Név: ')
+    time = input('Idő (perc): ')
+    difficult = input('Nehézség (könnyű, közepes, bonyolult): ')
+    prep = " "
+    ing = " " 
+
+    row = f'{name};{time};{difficult};{prep};{ing}\n'
+    f = open('etelek.csv', 'a', encoding='UTF-8')
+    f.write(row)
+    f.close()
+
+    r = Result(row)
+    results.append(r)
+
+
+
+def smallText(i,r):
+    #randomColor()
+    slowPrint(f'[{i+1}.] {r.name}, {r.time} perc, {r.difficult}\n',markiplier)
+
 def foods():
     for i,r in enumerate(results):
-        print(f'[{i+1}.] {r.name}, {r.time} perc, {r.difficult}')
+        smallText(i,r)
 
 def allDataByNameOrIndex(nameOrIndex, isByIndex:bool=True):
     '''Megj.: `nameOrIndex` = vagy a név vagy az index az `isByIndex` alapján.'''
@@ -74,9 +66,19 @@ def allDataByNameOrIndex(nameOrIndex, isByIndex:bool=True):
                 break
     os.system("cls")
     print(f'{r.name}, {r.time} perc, {r.difficult}\n{r.preparation}, \n{r.ingredients}')
-            
-    
-    input('\n')
+
+def searchByName():
+    name = input('Név: ')
+    count = 0
+    indexList = []
+    for i,r in enumerate(results):
+        if name.lower() in r.name.lower():
+            smallText(count,r)
+            count += 1
+            indexList.append(i)
+    if count == 0:
+        return False
+    return indexList
 
 def nameTimeDif():
     name = input('Név: ')

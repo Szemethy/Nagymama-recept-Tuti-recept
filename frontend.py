@@ -22,7 +22,7 @@ class Format:
     UNDERLINE = "\033[4m"
     END       = "\033[0m"
 
-
+import random
 class Color:
     """Szöveg előtt használja, `Format.END`-del törölheti az összes formázást."""
     RED     = "\033[31m"
@@ -33,6 +33,9 @@ class Color:
     CYAN	= "\033[36m"
     WHITE	= "\033[37m"
     DEFAULT	= "\033[39m"
+
+
+markiplier = .0
 
 def text(*arg):
     '''Szöveg színének és/vagy formázásának gyors megváltoztatása.
