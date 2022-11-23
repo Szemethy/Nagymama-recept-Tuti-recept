@@ -8,7 +8,6 @@ ___________
 - Étel keresése az adatbázisban
 - Új étel hozzáadása
 - Étel módosítása
-- Kedvenc ételek profilonként
 ___________
 ### Készítők:
 - Bende Huba
