@@ -1,4 +1,5 @@
 from result import Result
+import os
 
 results = []
 
@@ -9,16 +10,22 @@ def readFile():
     for row in f:
         r = Result(row.strip())
         results.append(r)
-    f.close
+    f.close()
 
 def searchByName():
     name = input('Név: ')
-    for r in results:
+    count = 0
+    indexList = []
+    for i,r in enumerate(results):
         if name.lower() in r.name.lower():
-            print(f'{r.name}, {r.time} perc, {r.difficult}')
-            input('\n')
-            return
-    input('Ilyen nevű étel nincs az adatbázisban')
+            print(f'[{count+1}.] {r.name}, {r.time} perc, {r.difficult}')
+            count += 1
+            indexList.append(i)
+    if count == 0:
+        input('Ilyen nevű étel nincs az adatbázisban')
+        return False
+    else:
+        return indexList
 
 def newResult():
     name = input('Név: ')
@@ -54,17 +61,21 @@ def modifyResult():
     input('Ilyen nevű étel nincs az adatbázisban')
 
 def foods():
-    f = open('etelek.csv', 'r', encoding='UTF-8')
-    for r in results:
-        print(f'{r.name}, {r.time} perc, {r.difficult}, \nElkészítése:\n{r.preparation}, \nHozzávalók:\n{r.ingredients}\n\n\n\n')
-    f.close
-    input('\n')
+    for i,r in enumerate(results):
+        print(f'[{i+1}.] {r.name}, {r.time} perc, {r.difficult}')
 
-def allData():
-    name = input('Név: ')
-    for r in results:
-        if name.lower() == r.name.lower():
-            print(f'{r.name}, {r.time} perc, {r.difficult}, \n{r.preparation}, \n{r.ingredients}')
+def allDataByNameOrIndex(nameOrIndex, isByIndex:bool=True):
+    '''Megj.: `nameOrIndex` = vagy a név vagy az index az `isByIndex` alapján.'''
+    if isByIndex:
+        r = results[nameOrIndex]
+    else:
+        for r in results:
+            if nameOrIndex.lower() == r.name.lower():
+                break
+    os.system("cls")
+    print(f'{r.name}, {r.time} perc, {r.difficult}\n{r.preparation}, \n{r.ingredients}')
+            
+    
     input('\n')
 
 def nameTimeDif():
