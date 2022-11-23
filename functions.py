@@ -32,16 +32,15 @@ def modifyResult():
     input('Ilyen nevű étel nincs az adatbázisban')
 
 def newResult():
-    name = input('Név: ')
+    name = input('Adja meg a nevét: ')
     time = input('Idő (perc): ')
     difficult = input('Nehézség (könnyű, közepes, bonyolult): ')
-    prep = " "
-    ing = " " 
+    prep = input('Lépések: ')
+    ing = input('Hozzávalók: ') 
 
     row = f'{name};{time};{difficult};{prep};{ing}\n'
-    f = open('etelek.csv', 'a', encoding='UTF-8')
-    f.write(row)
-    f.close()
+    with open('etelek.csv', 'a', encoding='UTF-8') as f:
+        f.write(row)
 
     r = Result(row)
     results.append(r)
@@ -65,7 +64,7 @@ def allDataByNameOrIndex(nameOrIndex, isByIndex:bool=True):
             if nameOrIndex.lower() == r.name.lower():
                 break
     os.system("cls")
-    print(f'{r.name}, {r.time} perc, {r.difficult}\n{r.preparation}, \n{r.ingredients}')
+    print(f'{r.name}, {r.time} perc, {r.difficult}\n{r.preparation} \n{r.ingredients}')
 
 def searchByName():
     name = input('Név: ')
@@ -78,8 +77,12 @@ def searchByName():
             indexList.append(i)
     if count == 0:
         return False
+    elif count == 1:
+        allDataByNameOrIndex(nameOrIndex=indexList[0],isByIndex=True)
+        return 1
     return indexList
 
+'''
 def nameTimeDif():
     name = input('Név: ')
     for r in results:
@@ -100,3 +103,4 @@ def preparation():
         if name.lower() == r.name.lower():
             print(f'{r.preparation}')
     input('\n')
+'''

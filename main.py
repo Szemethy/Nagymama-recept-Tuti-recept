@@ -5,6 +5,13 @@ from menu import menuStart, menuPrint, menuTexts, getMenuInput
 from functions import foods,readFile,searchByName,newResult,modifyResult,allDataByNameOrIndex,results
 from frontend import *
 
+def betterChoice(openIndex,charsToGet:int):
+    print()
+    openIndex = ""
+    for i in range(0,charsToGet):
+        openIndex += getwch()
+        print(openIndex[i],end="")
+
 if __name__ == "__main__":
     os.system("cls")
     readFile() #functions
@@ -22,6 +29,7 @@ if __name__ == "__main__":
         match choice:
             case "1":
                 foods()
+                #betterChoice(openIndex,2)
                 openIndex = input("Index? ")
                 while not(openIndex.isnumeric()) or not(0 < int(openIndex) < len(results)+1):
                     openIndex = input("Index? ")
@@ -30,14 +38,16 @@ if __name__ == "__main__":
                 getwch()
             case "2":
                 indexList = searchByName()
-                if indexList:
-                    openIndex = input("Index? ")
+                if indexList == 1:
+                    pass
+                elif indexList:
+                    openIndex = input("Index ")
                     while not(openIndex.isnumeric()) or not(0 < int(openIndex) < len(indexList)+1):
                         openIndex = input("Index? ")
                     openIndex = int(openIndex)-1
                     searchedIndex = indexList[openIndex]
                     allDataByNameOrIndex(nameOrIndex=searchedIndex,isByIndex=True)
-                slowPrint("Ilyen nevű receptünk nincs! :c",0.01*markiplier)
+                else: slowPrint("Ilyen nevű receptünk nincs! :c",0.01*markiplier)
                 getwch()
             case "3":
                 newResult()
