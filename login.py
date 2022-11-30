@@ -22,6 +22,10 @@ def register():
     while len(newPassword) < 6:
         print("A jelszó túl rövid (minimum 6 karakter!)")
         newPassword = input("Jelszó: ")
+        
+    newUsername = newUsername.replace(";",",")
+    newPassword = newPassword.replace(";",",")
+    
     usernameList.append(newUsername)
     passwordList.append(newPassword)
     f = open('feljel.csv', 'a', encoding="UTF-8")
