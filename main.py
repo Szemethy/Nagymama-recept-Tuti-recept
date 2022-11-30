@@ -2,7 +2,7 @@ from msvcrt import getwch;import os
 from booter import getBooterText, boot
 from login import login_menu
 from menu import menuStart, menuPrint, menuTexts, getMenuInput
-from functions import foods,readFile,searchByName,newResult,modifyResult,allDataByNameOrIndex,results
+from functions import foods,readFile,searchByName,newResult,changeResultById,allDataByNameOrIndex,addResultToEnd,results
 from frontend import *
 
 def betterChoice(openIndex,charsToGet:int):
@@ -37,10 +37,10 @@ if __name__ == "__main__":
                 allDataByNameOrIndex(nameOrIndex=openIndex,isByIndex=True)
                 getwch()
             case "2":
-                indexList = searchByName()
-                if indexList == 1:
-                    pass
-                elif indexList:
+                indexList,isFound = searchByName()
+                if isFound == "1":
+                    allDataByNameOrIndex(nameOrIndex=indexList[0],isByIndex=True)
+                elif isFound == True:
                     openIndex = input("Index ")
                     while not(openIndex.isnumeric()) or not(0 < int(openIndex) < len(indexList)+1):
                         openIndex = input("Index? ")
@@ -50,9 +50,25 @@ if __name__ == "__main__":
                 else: slowPrint("Ilyen nevű receptünk nincs! :c",0.01*markiplier)
                 getwch()
             case "3":
-                newResult()
+                row,rowlist = newResult()
+                addResultToEnd(row)
             case "4":
-                modifyResult()
+                indexList,isFound = searchByName()
+                if isFound == "1":
+                    #allDataByNameOrIndex(nameOrIndex=indexList[0],isByIndex=True)
+                    row,rowlist = newResult()
+                    changeResultById(indexList[0],rowlist)
+                elif isFound == True:
+                    openIndex = input("Index ")
+                    while not(openIndex.isnumeric()) or not(0 < int(openIndex) < len(indexList)+1):
+                        openIndex = input("Index? ")
+                    openIndex = int(openIndex)-1
+                    searchedIndex = indexList[openIndex]
+                    #allDataByNameOrIndex(nameOrIndex=searchedIndex,isByIndex=True)
+                    row,rowlist = newResult()
+                    changeResultById(searchedIndex,rowlist)
+                else: slowPrint("Ilyen nevű receptünk nincs! :c",0.01*markiplier)
+                getwch()
             case "5":
                 pass
         os.system("cls")
