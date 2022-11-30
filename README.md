@@ -8,6 +8,7 @@ ___________
 - Étel keresése az adatbázisban
 - Új étel hozzáadása
 - Étel módosítása
+- Étel törlése
 ___________
 ### Készítők:
 - Bende Huba
