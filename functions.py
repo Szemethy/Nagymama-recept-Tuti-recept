@@ -7,7 +7,6 @@ results = []
 def readFile():
     results.clear()
     f = open('etelek.csv', 'r', encoding='UTF-8')
-    f.readline() 
     for row in f:
         r = Result(row.strip())
         results.append(r)
@@ -16,7 +15,7 @@ def readFile():
 def writeFile():
     with open('etelek.csv', 'w', encoding='UTF-8') as f:
         for r in results:
-            print(r)
+            #print(r)
             row = f'{r.name};{r.time};{r.difficult};{r.preparation};{r.ingredients}\n'
             f.write(row)
 
@@ -27,8 +26,8 @@ def newResult():
     prep = input('Lépések: ')
     ing = input('Hozzávalók: ') 
 
-    row = f'{name};{time};{difficult};{prep};{ing}\n'
-    return row, [name,time,difficult,prep,ing]
+    row = f'{name};{time};{difficult};{prep};{ing}'
+    return row
 
 def addResultToEnd(row):
     with open('etelek.csv', 'a', encoding='UTF-8') as f:
@@ -37,8 +36,12 @@ def addResultToEnd(row):
     r = Result(row)
     results.append(r)
 
-def changeResultById(id:int,rowlist:list):
-    results[id] = rowlist
+def changeResultById(id:int,row:str):
+    results[id] = Result(row)
+    writeFile()
+
+def deleteResultById(id:int):
+    results.pop(id)
     writeFile()
     
 
