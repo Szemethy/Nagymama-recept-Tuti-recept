@@ -17,7 +17,8 @@ if __name__ == "__main__":
     readFile() #functions
 
     getBooterText()
-    boot()
+    #boot()
+    user = "sonnenschein31"
     user = login_menu()
 
 
@@ -25,7 +26,7 @@ if __name__ == "__main__":
     mistakes = 0
     choice = ''
     while choice != "0":
-        menuStart(userName="xd",markiplier=markiplier)
+        menuStart(userName=user,markiplier=markiplier)
         menuPrint(markiplier=markiplier)
         choice = getMenuInput()
         os.system("cls")

@@ -17,8 +17,8 @@ def boot():
     print("Betöltés, kérem várjon!",end="")
     text("end")
 
-    minLoad = 6
-    maxLoad = 14
+    minLoad = 4
+    maxLoad = 11
     pointList = "." * random.randint(minLoad,maxLoad)
 
     #[pointList.append(".") for x in range(minLoad,maxLoad)]

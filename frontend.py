@@ -35,7 +35,7 @@ class Color:
     DEFAULT	= "\033[39m"
 
 
-markiplier = .0
+markiplier = 1.0
 
 def text(*arg):
     '''Szöveg színének és/vagy formázásának gyors megváltoztatása.
