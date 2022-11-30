@@ -34,9 +34,9 @@ if __name__ == "__main__":
             case "1":
                 foods()
                 #betterChoice(openIndex,2)
-                openIndex = input("Index? ")
+                openIndex = input("Adja meg a keresett sorszámot! ")
                 while not(openIndex.isnumeric()) or not(0 < int(openIndex) < len(results)+1):
-                    openIndex = input("Index? ")
+                    openIndex = input("Adja meg a keresett sorszámot! ")
                 openIndex = int(openIndex)-1 #gépindex-é emberindex helyett
                 allDataByNameOrIndex(nameOrIndex=openIndex,isByIndex=True)
                 print()
@@ -46,9 +46,9 @@ if __name__ == "__main__":
                 if isFound == "1":
                     allDataByNameOrIndex(nameOrIndex=indexList[0],isByIndex=True)
                 elif isFound == True:
-                    openIndex = input("Index ")
+                    openIndex = input("Adja meg a keresett sorszámot! ")
                     while not(openIndex.isnumeric()) or not(0 < int(openIndex) < len(indexList)+1):
-                        openIndex = input("Index? ")
+                        openIndex = input("Adja meg a keresett sorszámot! ")
                     openIndex = int(openIndex)-1
                     searchedIndex = indexList[openIndex]
                     allDataByNameOrIndex(nameOrIndex=searchedIndex,isByIndex=True)
@@ -64,9 +64,9 @@ if __name__ == "__main__":
                     row = newResult()
                     changeResultById(indexList[0],row)
                 elif isFound == True:
-                    openIndex = input("Index ")
+                    openIndex = input("Adja meg a keresett sorszámot! ")
                     while not(openIndex.isnumeric()) or not(0 < int(openIndex) < len(indexList)+1):
-                        openIndex = input("Index? ")
+                        openIndex = input("Adja meg a keresett sorszámot! ")
                     openIndex = int(openIndex)-1
                     searchedIndex = indexList[openIndex]
                     row = newResult()
@@ -77,9 +77,9 @@ if __name__ == "__main__":
             case "5":
                 indexList,isFound = searchByName()
                 if isFound == True:
-                    openIndex = input("Index ")
+                    openIndex = input("Adja meg a keresett sorszámot! ")
                     while not(openIndex.isnumeric()) or not(0 < int(openIndex) < len(indexList)+1):
-                        openIndex = input("Index? ")
+                        openIndex = input("Adja meg a keresett sorszámot! ")
                     openIndex = int(openIndex)-1
                     searchedIndex = indexList[openIndex]
 

@@ -26,13 +26,13 @@ def menuPrint(markiplier=1):
     #5.recept eltávolítása
     for i,row in enumerate(menuTexts):
         text(menuColor(i))
-        slowPrint(f"{i+1}. {row}\n",0.02*markiplier)
+        slowPrint(f"{i+1}. {row}\n",0.015*markiplier)
         text("end")
     
     #0.kilépés
     print("\n\t")
     text(Format.ITALIC)
-    slowPrint(f"0. kilépés\n\n",0.02*markiplier)
+    slowPrint(f"0. kilépés\n\n",0.015*markiplier)
     text("end")
 
 

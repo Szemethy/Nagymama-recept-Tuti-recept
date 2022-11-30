@@ -102,7 +102,7 @@ def login():
 def printLogin():
     text("green")
     slowPrint("a) Regisztrálás\n",0.01*markiplier)
-    text("yellow")
+    text("magenta")
     slowPrint("b) Bejelentkezés\n\n",0.01*markiplier)
     text(Format.END,Format.ITALIC)
     slowPrint("c) Kilépés\n",0.01*markiplier)

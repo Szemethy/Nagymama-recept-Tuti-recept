@@ -47,7 +47,7 @@ def deleteResultById(id:int):
 
 def smallText(i,r):
     #randomColor()
-    slowPrint(f'[{i+1}.] {r.name}, {r.time} perc, {r.difficult}\n',markiplier)
+    slowPrint(f'[{i+1}.] {r.name}, {r.time} perc, {r.difficult}\n',0.01*markiplier)
 
 def foods():
     for i,r in enumerate(results):
