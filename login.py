@@ -62,3 +62,9 @@ def login_menu():
             sys.exit()
     #menu(userName=userToLogin)
     return userToLogin
+
+
+def login_menu():
+    sikeres = False
+    while sikeres == False:
+        fiok = input("a,Regisztrálás\nb,Bejelentkezés")
